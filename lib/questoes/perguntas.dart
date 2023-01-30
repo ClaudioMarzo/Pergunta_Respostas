@@ -1,5 +1,4 @@
-
-const List<Map<String, Object>> Perguntas = [
+final _perguntas = const [
   {
     'texto': 'Qual sua cor favorita?',
     'resposta': ['Vermelho','Amarelo','Azul','Preto'],
@@ -13,11 +12,14 @@ const List<Map<String, Object>> Perguntas = [
     'resposta': ['Antônio','Cláudio','Emarielle','Juan '],
   },
 ];
-//
-// bool get temPerguntaSelecionada{
-//   return perguntaSelecionada < _Perguntas.length;
-// }
-//
-//  set Pergunta(String _Pergunta){
-//   return _Perguntas;
-// }
+
+get perguntas{
+  return _perguntas;
+}
+
+bool chegouFinalDaLista(var perguntaSelecionada ){
+  return perguntaSelecionada < perguntas.length ;
+}
+
+
+

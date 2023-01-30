@@ -2,7 +2,8 @@ import 'package:flutter/cupertino.dart';
 import '../questoes//perguntas.dart';
 
 class FraseQuestao extends StatelessWidget {
-  List<Map<String,Object>> perguntas = Perguntas;
+  
+  List<Map<String,Object>> pergunta = perguntas;
   int posicao;
   FraseQuestao({required this.posicao});
 
@@ -11,7 +12,7 @@ class FraseQuestao extends StatelessWidget {
     return Container(
       width: double.infinity,
       margin: const EdgeInsetsDirectional.all(10),
-      child: Text(perguntas[posicao]['texto'].toString(),
+      child: Text(pergunta[posicao]['texto'].toString(),
         style: const TextStyle(
           fontSize: 28
         ),
