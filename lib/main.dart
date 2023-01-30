@@ -19,12 +19,23 @@ class PerguntaApp extends StatefulWidget{
 class _PerguntaAppState extends State<PerguntaApp>{
 
   var indexPergunta = 0;
-  void controlerIndex(){
+  var pontuacaoTotal  = 0;
+
+  void controlerIndex(int pontuacao){
     if(chegouFinalDaLista(indexPergunta)){
        setState(() {
       indexPergunta++;
+      pontuacaoTotal += pontuacao;
     });
+    print(pontuacaoTotal);
     }
+  }
+
+  void reniciarFormulario(){
+    setState(() {
+      indexPergunta = 0;
+      pontuacaoTotal = 0;
+    });
   }
   @override
   Widget build(BuildContext context){
@@ -38,7 +49,7 @@ class _PerguntaAppState extends State<PerguntaApp>{
         ),
         body: chegouFinalDaLista(indexPergunta) 
          ? Questionario(indexPergunta: indexPergunta, controlerIndex: controlerIndex)
-         : const Resutaldo(),
+         : Resutaldo(pontuacao: pontuacaoTotal, reniciarFormulario: reniciarFormulario,),
       ),
     );
   }

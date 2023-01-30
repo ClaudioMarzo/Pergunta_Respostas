@@ -6,7 +6,7 @@ import '../style/opcao.dart';
 class Questionario extends StatelessWidget {
   final List<Map<String, Object>> pergun = perguntas;
   final int indexPergunta;
-  final void Function() controlerIndex;
+  final void Function(int) controlerIndex;
 
   Questionario({super.key, required this.indexPergunta, required this.controlerIndex});
  
@@ -21,7 +21,9 @@ class Questionario extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               FraseQuestao(posicao: indexPergunta),
-              ...respostas.map((t) => Respostas(respostas: t, onSelecao: controlerIndex)).toList(),
+              ...respostas.map((resp) => Respostas(
+                respostas: resp['texto'].toString(), 
+                onSelecao: () => controlerIndex(resp['pontuacao']))).toList(),
               // Respostas(respostas: "Resposta 1", onSelecao: _responder),
               // Respostas(respostas: "Resposta 2", onSelecao: _responder),
               // Respostas(respostas: "Resposta 3", onSelecao: _responder),
